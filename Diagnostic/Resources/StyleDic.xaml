@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Diagnostic.Resources">
+
+    <Style TargetType="Label">
+        <Setter Property="Control.FontSize" Value="20"></Setter>
+        <Setter Property="Control.FontFamily" Value="Malgun Gothic"></Setter>
+    </Style>
+
+    <Style x:Key="LabelEdit" TargetType="Label">
+        <Setter Property="Control.FontSize" Value="12"></Setter>
+        <Setter Property="Control.FontFamily" Value="Malgun Gothic"></Setter>
+    </Style>
+    
+    <ControlTemplate
+        TargetType="{x:Type Button}" x:Key="ButtonEnterTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="C:\Users\Евгений\Documents\Visual Studio 2015\Projects\Diagnostic\Diagnostic\Images\EnterPageButton.png" />
+            <Label Padding="5" Name="lableText">
+                <ContentPresenter RecognizesAccessKey="True"></ContentPresenter>
+            </Label>
+           
+        </StackPanel>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsPressed" Value="True" >
+                <Setter TargetName="lableText" Property="Label.Foreground" Value="Blue"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate
+        TargetType="{x:Type TextBoxBase}" x:Key="TextBoxTemplate">
+        <Border Opacity="0.5"
+               BorderBrush="LightBlue"
+                BorderThickness="1">
+          
+        </Border>
+        
+        
+    </ControlTemplate>
+    
+</ResourceDictionary>

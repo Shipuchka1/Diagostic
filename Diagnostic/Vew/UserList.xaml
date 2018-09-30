@@ -1,0 +1,90 @@
+﻿<Page x:Class="Diagnostic.Vew.UserList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diagnostic.Vew"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="UserList">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                Height="50"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Пользователи</Label>
+        <ListView x:Name="UserListView" Grid.Row="1" >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="UserId" DisplayMemberBinding="{Binding Path=userId}"></GridViewColumn>
+                        <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Path=login}"></GridViewColumn>
+                        <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=password}"></GridViewColumn>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=address}"></GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=name}"></GridViewColumn>
+                        <GridViewColumn Header="PhoneNo" DisplayMemberBinding="{Binding Path=phoneNo}"></GridViewColumn>
+                        <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Path=age}"></GridViewColumn>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Path=gender}"></GridViewColumn>
+                        <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Path=userRoleId}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <WrapPanel x:Name="EditUserWrapPanel" Grid.Row="2" DataContext="{Binding ElementName=UserListView, Path=SelectedItem}" Orientation="Horizontal">
+            
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="UserId"></Label>
+                <TextBox Margin="10,0,0,0" Opacity="0.5" Width="150" Height="20"  Text="{Binding Path=userId}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Login"></Label>
+                <TextBox Margin="10,0,0,0" Opacity="0.5" Width="150" Height="20"  Text="{Binding Path=login}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Password"></Label>
+                <TextBox Margin="10,0,0,0" Opacity="0.5" Width="150" Height="20"  Text="{Binding Path=password}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Address"></Label>
+                <TextBox Margin="10,0,0,0" Opacity="0.5" Width="150" Height="20"  Text="{Binding Path=address}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Name"></Label>
+                <TextBox Margin="10,0,0,0"  Opacity="0.5" Width="150" Height="20" Text="{Binding Path=name}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Phone"></Label>
+                <TextBox Margin="10,0,0,0"  Opacity="0.5" Width="150" Height="20" Text="{Binding Path=phoneNo}"   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Age"></Label>
+                <TextBox Margin="10,0,0,0"  Opacity="0.5" Width="150" Height="20" Text="{Binding Path=age}"   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Gender"></Label>
+                <ComboBox SelectedIndex="{Binding Path=gender}" x:Name="GenderComboBox"  Margin="10,0,0,0"  Opacity="0.5" Width="150" Height="20" Text="{Binding  Path=gender}"   HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ComboBoxItem >Мужской</ComboBoxItem>
+                    <ComboBoxItem>Женский</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelEdit}" Content="Role"></Label>
+                <ComboBox SelectedIndex="{Binding  Path=userRoleId}" SelectedValuePath="roleId" DisplayMemberPath="name" x:Name="RoleEditComboBox" Margin="10,0,0,0"  Opacity="0.5" Width="150" Height="20"   HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+            </StackPanel>
+
+            <Button Click="Button_Click" Height="20" Margin="20">Изменить</Button>
+        </WrapPanel>
+        
+    </Grid>
+</Page>

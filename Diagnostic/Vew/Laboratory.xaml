@@ -1,0 +1,33 @@
+﻿<Page x:Class="Diagnostic.Vew.Laboratory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diagnostic.Vew"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Laboratory">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Лаборатории</Label>
+        <ListView x:Name="LaboratoryList" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="LaboratoryId" DisplayMemberBinding="{Binding Path=laboratoryID}"></GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=name}"></GridViewColumn>
+                        <GridViewColumn Header="City" DisplayMemberBinding="{Binding Path=cityId}"></GridViewColumn>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=address}"></GridViewColumn>
+                        <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding Path=phoneNo}"></GridViewColumn>
+                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Path=labeTimins}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

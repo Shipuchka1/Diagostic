@@ -1,0 +1,42 @@
+﻿<Page x:Class="Diagnostic.Vew.DocUserList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diagnostic.Vew"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="DocUserList">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                Height="50"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Пользователи</Label>
+        <ListView x:Name="UserListView" Grid.Row="1" SelectionChanged="UserListView_SelectionChanged" >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="UserId" DisplayMemberBinding="{Binding Path=userId}"></GridViewColumn>
+                        <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Path=login}"></GridViewColumn>
+                        <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=password}"></GridViewColumn>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=address}"></GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=name}"></GridViewColumn>
+                        <GridViewColumn Header="PhoneNo" DisplayMemberBinding="{Binding Path=phoneNo}"></GridViewColumn>
+                        <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Path=age}"></GridViewColumn>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Path=gender}"></GridViewColumn>
+                        <GridViewColumn Header="Role" DisplayMemberBinding="{Binding Path=userRoleId}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <FlowDocumentScrollViewer Grid.Row="2" x:Name="UserDoc">
+            <FlowDocument >
+                
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+    </Grid>
+</Page>
